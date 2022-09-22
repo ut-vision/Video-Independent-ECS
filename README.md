@@ -1,5 +1,7 @@
 # Learning Video-independent Eye Contact Segmentation from In-the-wild Videos
 
+![result_on_VoxCeleb2_test_tracklets](./example/result.gif)
+
 ## Environment Configuration
 
 We provide singularity and docker images used for running the code in this project. 
@@ -14,11 +16,11 @@ Otherwise we provide the conda enviroment file in conda_env.yml
 
 ## Preparations
 
-### Appearance-based gaze estimation
+### Appearance-based Gaze Eestimation
 
 Please first download the pretrained [ETH-XGaze model](https://github.com/xucong-zhang/ETH-XGaze) and place the ckpt into ./modules
 
-### Face detection and facial landmark detection
+### Face Detection and Facial Landmark Detection
 
 Following ETH-XGaze, we rely on dlib for face detection and landmark detection.
 
@@ -26,7 +28,7 @@ Please download the following from [dlib model library](https://github.com/davis
 - mmod_human_face_detector.dat
 - shape_predictor_68_face_landmarks_GTX.dat
 
-### Face recognition and Pose Estimation
+### Face Recognition and Pose Estimation
 
 Our approach is bulit on face recognition and pose estimation. You can choose any pretrained face recognition and pose estimation approaches.
 
@@ -180,6 +182,5 @@ writing as a video
 Done.
 ```
 We also provide a demo with a simple face tracker in demo_with_tracking.py. You can simply run by specifying input and output path
-'
-python demo_with_tracking.py --input <video_path> --output <video_path> --iou 0.4
-'
+
+`python demo_with_tracking.py --input examples/multiperson.mkv --output examples/multiperson_out.mkv --iou 0.4`
