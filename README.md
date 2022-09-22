@@ -1,18 +1,16 @@
 # Learning Video-independent Eye Contact Segmentation from In-the-wild Videos
 
+Results on our annotated videos from VoxCeleb2 dataset:
 ![result_on_VoxCeleb2_test_tracklets](./example/result.gif)
+
+Results on random street interview videos from Youtube:
+![result_on_street_interview](./example/result2.gif)
 
 ## Environment Configuration
 
-We provide singularity and docker images used for running the code in this project. 
+Please refer to requirements.txt, otherwise we provide the conda enviroment file in conda_env.yml.
 
-To get the sif file for this repo, run
-
-> sudo singularity build eyecontact.sif docker://twu224/optuna
-
-The same docker image can be obtained from the same link.
-
-Otherwise we provide the conda enviroment file in conda_env.yml
+We provide docker images used for running the code in this project at `docker://twu224/optuna`
 
 ## Preparations
 
@@ -30,7 +28,7 @@ Please download the following from [dlib model library](https://github.com/davis
 
 ### Face Recognition and Pose Estimation
 
-Our approach is bulit on face recognition and pose estimation. You can choose any pretrained face recognition and pose estimation approaches.
+Our tracking algorithm is bulit on face recognition and pose estimation. You can choose any pretrained face recognition and pose estimation models.
 
 You need to implement encode_face() and compute_pose() in the tools.py and modify 
 
@@ -84,6 +82,10 @@ RootFolderName
 
 | demo.py
 ```
+
+## Evaluation dataset
+
+We annotated 52 videos from VoxCeleb2 Dataset. They can be obtained here.
 
 ## Training
 
@@ -184,3 +186,14 @@ Done.
 We also provide a demo with a simple face tracker in demo_with_tracking.py. You can simply run by specifying input and output path
 
 `python demo_with_tracking.py --input examples/multiperson.mkv --output examples/multiperson_out.mkv --iou 0.4`
+
+Note that our pretrained model is trained using unsupervised approach on large-scale conversation videos.
+
+It works best on
+- conversation videos (interview, speaking to the camera)
+- frontal faces with most of the attention drawn to the gaze target
+
+It fails severely on
+- short profile face tracklets 
+
+

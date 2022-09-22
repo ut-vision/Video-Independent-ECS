@@ -1,0 +1,13 @@
+Cython
+dlib
+imutils
+numpy
+pandas
+scipy
+opencv-python==4.5.2
+scikit-learn==1.0.2
+scikit-spatial==6.4.0
+seaborn==0.11.2
+tensorboard==2.9.1
+pytorch==1.11.0
+torchvision>=0.12.0
