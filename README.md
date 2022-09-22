@@ -45,8 +45,9 @@ Note that the above docker image is not designed for downloading dataset here. P
 
 To download the raw videos, run
 
-`cd randomVox
-python download.py`
+`cd randomVox`
+
+`python download.py`
 
 
 After downloading as much videos as you can, you should convert all videos to 25FPS in mkv by
@@ -137,7 +138,7 @@ You simply need the dlib pretrained weights, ETH-XGaze pretrained weights on Res
 
 During inference, our model does not require face recognition and pose estimation. However, for videos containing multiple people, it is essential to track faces. Depending on the use case, tracking algorithm of different complexity should be used. In the most simple cases, a tracking algorithm simply based on IoU of face bounding boxes can be adopted.
 
-We provide a inference demo for a single-person video from our test tracklets.
+We provide an inference demo for a single-person video from our test tracklets.
 
 Please first download our pretrained weights and place it to ./modules.
 
