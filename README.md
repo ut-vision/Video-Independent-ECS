@@ -8,7 +8,7 @@ Results on random street interview videos from Youtube:
 
 ## Environment Configuration
 
-Please refer to requirements.txt, otherwise we provide the conda enviroment file in conda_env.yml.
+Please refer to requirements.txt. Otherwise for conda virtual environments, please see conda_env.yml.
 
 We provide docker images used for running the code in this project at `docker://twu224/optuna`
 
@@ -35,7 +35,7 @@ You need to implement encode_face() and compute_pose() in the tools.py and modif
 - generate_face_embedding.py L83
 - trackletFormation.py L158, L207-L220
 
-In our case, we used [ArcFace_r100_fp16](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) for face recognition and [here](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation) for pose estimation
+In our case, we used [ArcFace_r100_fp16](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch) for face recognition and [here](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation) for pose estimation. Note that face recognition and pose estimation are only required for training but not inference.
 
 ## Random VoxCeleb2 Dataset
 
@@ -64,29 +64,24 @@ The final dataset should have a folder structure:
 
 ```
 RootFolderName
-
 | - randomVox
-    
     | - id00016 (Each folder here contains xxx_25fps.mkv videos)
-
     | - id00018
-
-    | - ...
-
+    | ...
+    | ...
+    | ...
     | - id09272
-
-| camera
-
-| modules
-
+| - camera
+| - modules
 | ...
-
+| ...
+| ...
 | demo.py
 ```
 
 ## Evaluation dataset
 
-We annotated 52 videos from VoxCeleb2 Dataset. They can be obtained here.
+We annotated 52 videos from VoxCeleb2 Dataset for one-way eye contact segmentation. They can be obtained here.
 
 ## Training
 
@@ -121,6 +116,8 @@ or simply
 
 `python training/ECSTrainer.py --stack --mse`
 
+The first way allows you to manually pick the intermediate model.
+
 But before training, one might want to first convert test set segmentation labels for videos to test set tracklets framewise labels.
 
 Please do following, 
@@ -134,7 +131,7 @@ python training/create_dataset.py --make_testing
 
 Note that inference does not require the implementation of functions in the tools.py.
 
-You simply need the dlib pretrained weights, ETH-XGaze pretrained weights on ResNet50.
+You simply need the dlib pretrained weights, ETH-XGaze pretrained weights on ResNet50 and our pretrained weights.
 
 During inference, our model does not require face recognition and pose estimation. However, for videos containing multiple people, it is essential to track faces. Depending on the use case, tracking algorithm of different complexity should be used. In the most simple cases, a tracking algorithm simply based on IoU of face bounding boxes can be adopted.
 
@@ -146,7 +143,7 @@ Then run
 
 `python demo.py`
 
-You will get a processed video under examples/.
+You will get a processed video under ./examples
 
 If you see the following messages, you are doing it correctly.
 
@@ -184,7 +181,7 @@ Predicted:
 writing as a video
 Done.
 ```
-We also provide a demo with a simple face tracker in demo_with_tracking.py. You can simply run by specifying input and output path
+We also provide a demo with a simple face tracker based on IoU of bounding boxes in demo_with_tracking.py. You can simply run by specifying input and output path
 
 `python demo_with_tracking.py --input examples/multiperson.mkv --output examples/multiperson_out.mkv --iou 0.4`
 
