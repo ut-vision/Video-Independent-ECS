@@ -10,7 +10,7 @@ Results on random street interview videos from Youtube:
 
 Please refer to requirements.txt. Otherwise for conda virtual environments, please see conda_env.yml.
 
-We provide docker images used for running the code in this project at `docker://twu224/optuna`
+We also provide dockerfile used for running the code.
 
 ## Preparations
 
