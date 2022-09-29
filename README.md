@@ -81,7 +81,12 @@ RootFolderName
 
 ## Evaluation dataset
 
-We annotated 52 videos from VoxCeleb2 Dataset for one-way eye contact segmentation. They can be obtained here.
+We annotated 52 videos from VoxCeleb2 Dataset for one-way eye contact segmentation. 
+
+Video-level annotations are provided under ./Annotation.
+
+Tracklets we extracted with face bounding boxes and facial landmarks will be released later.
+
 
 ## Training
 
@@ -95,7 +100,9 @@ This generates face embeddings for all celebrity IDs, which will be used for fac
 
 `python trackletFormation.py` 
 
-(This is going to take long. Roughly 2 months depending on the hardware (both CPU and GPU) This generates face tracklets in .npz format. Each tracklet contain: start_frame, bounding_box locations, facial landmarks, and gaze features. It also records all gaze points in the csv file.
+(This is going to take long. Roughly 2 months depending on the hardware (both CPU and GPU).
+ 
+This generates face tracklets in .npz format. Each tracklet contain: start_frame, bounding_box locations, facial landmarks, and gaze features. It also records framewise gaze points in the csv file used later for gaze target discovery.
 
 `python training/pseudo_label_generator.py --run_train --m_eps 8 --associate`
 
