@@ -1,5 +1,9 @@
 # Learning Video-independent Eye Contact Segmentation from In-the-wild Videos
 
+This repository contains the official implementation of our paper *Learning Video-independent Eye Contact Segmentation from In-the-wild Videos* (ACCV2022) and also the evaluation annotation on 52 selected videos from VoxCeleb2 dataset.
+
+If you have some requests or questions, please contact the first author.
+
 Results on our annotated videos from VoxCeleb2 dataset:
 ![result_on_VoxCeleb2_test_tracklets](./example/result.gif)
 
