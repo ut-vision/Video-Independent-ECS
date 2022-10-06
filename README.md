@@ -87,10 +87,7 @@ RootFolderName
 
 We annotated 52 videos from VoxCeleb2 Dataset for one-way eye contact segmentation. 
 
-Video-level annotations are provided under ./Annotation.
-
-Tracklets we extracted with face bounding boxes and facial landmarks will be released later.
-
+Video-level annotations and tracklets used for evaulation are available under ./Annotation.
 
 ## Training
 
