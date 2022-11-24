@@ -202,4 +202,17 @@ It works best on
 It fails severely on
 - short profile face tracklets 
 
+## Publication
+If you use our dataset, or find our work helpful, please cite the following bibtex.
+
+```
+@InProceedings{Wu_2022_ACCV,
+    author    = {Wu, Tianyi and Sugano, Yusuke},
+    title     = {Learning Video-independent Eye Contact Segmentation from In-the-Wild Videos},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    month     = {December},
+    year      = {2022},
+    pages     = {703-720}
+}
+```
 
