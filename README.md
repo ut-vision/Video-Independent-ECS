@@ -139,7 +139,7 @@ python training/create_dataset.py --make_testing
 
 Note that inference does not require the implementation of functions in the tools.py.
 
-You simply need the dlib pretrained weights, ETH-XGaze pretrained weights on ResNet50 and our pretrained [weights](https://drive.google.com/file/d/1573tM8uP2iDp3za5eUcEPoU9op4mJvCZ/view?usp=sharing).
+You simply need the dlib pretrained weights, ETH-XGaze pretrained weights on ResNet50 and our pretrained [weights](https://drive.google.com/file/d/1S2hsVtXvNOocyOAxnQgAz4NzIju99Hkl/view?usp=sharing).
 
 During inference, our model does not require face recognition and pose estimation. However, for videos containing multiple people, it is essential to track faces. Depending on the use case, tracking algorithm of different complexity should be used. In the most simple cases, a tracking algorithm simply based on IoU of face bounding boxes can be adopted.
 
